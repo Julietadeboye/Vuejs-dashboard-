@@ -1,0 +1,119 @@
+body {
+  background-color: #F3F7FF;
+ 
+}
+
+.wrapper {
+  width: 100%;
+  @include ltr-rtl("padding-left", var(--cui-sidebar-occupy-start, 0));
+  @include ltr-rtl("padding-right", var(--cui-sidebar-occupy-end, 0));
+  will-change: auto;
+  @include transition(padding .15s);
+}
+
+.header > .container-fluid,
+.sidebar-header {
+ // min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+}
+.card-dashboard{
+  height: 115px; 
+ width: auto;
+  border: 1px; 
+  border-radius: 5px; 
+  color: #566BA0;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.card-title{
+  color: #566BA0;
+font-weight: 400;
+font-size: 12px;
+}
+
+.card-text{
+  font-size: 28px;
+  
+}
+.dashboard-chart{
+  display: flex;
+  flex-direction: row;
+}
+.sidebar-brand-full {
+
+  width: fit-content;
+}
+
+.header-row{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+ 
+}
+.user-name{
+  color:#9999BC;
+  font-size: 16px;
+  padding-top: .75rem;
+ 
+}
+.user-profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+background: #ECEEF5;
+border-radius: 20px;
+opacity: 40%;
+font-weight: 500;
+font-size: 12px;
+}
+
+.profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar-header {
+  .nav-underline-border {
+    --cui-nav-underline-border-link-padding-x: 1rem;
+    --cui-nav-underline-border-gap: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+  }
+}
+
+.sidebar-toggler {
+  @include ltr-rtl("margin-left", auto);
+}
+
+.sidebar-narrow,
+.sidebar-narrow-unfoldable:not(:hover) {
+  .sidebar-toggler {
+    @include ltr-rtl("margin-right", auto);
+  }
+}
+
+.header > .container-fluid + .container-fluid {
+  min-height: 3rem;
+}
+
+.footer {
+  min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
+}
+
+// @if $enable-dark-mode {
+//   @include color-mode(dark) {
+//     body {
+//       background-color: var(--cui-dark-bg-subtle);
+//     }
+
+//     .footer {
+//       --cui-footer-bg: var(--cui-body-bg);
+//     }
+//   }
+// }
