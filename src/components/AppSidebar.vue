@@ -10,14 +10,15 @@
         $store.commit({
           type: 'updateSidebarVisible',
           value: event,
-        })
+        }) 
     "
   >
     <CSidebarHeader class="border-bottom">
       <RouterLink custom to="/" v-slot="{ href, navigate }">
+      <div>
         <CSidebarBrand v-bind="$attrs" as="a" :href="href" @click="navigate">
           <img class="d-block w-100" :src="Logo" alt="logo" />
-        </CSidebarBrand>
+        </CSidebarBrand> <p class="color: #8D9091; font-size: 12px padding-top: 8px;">App Name</p></div>
         <img :src="Compress" />
       </RouterLink>
       <CCloseButton class="d-lg-none" dark @click="$store.commit('toggleSidebar')" />
@@ -47,7 +48,6 @@ export default {
     
       Logo,
       Compress,
-      sidebarUnfoldable: computed(() => store.state.sidebarUnfoldable),
       sidebarVisible: computed(() => store.state.sidebarVisible),
     }
   },

@@ -1,5 +1,17 @@
 <template>
   <div>
+    <div class="refresh">
+       <p>Last updated 1 minute ago </p>
+        <CButton  :color="light " style="color: #15AE73;"
+                    >
+                               <img :src="RefreshIcon" alt="refresh" style="height: 14px " />
+
+                      Refresh
+                    </CButton>
+      
+    </div>
+
+   
     <DashboardCards class="mb-4" />
     <!-- <div>
     <CRow>
@@ -33,14 +45,21 @@
 
 import MainChart from './MainChart'
 import DashboardCards from '../../components/Cards.vue'
+import RefreshIcon from '@/assets/icons/refresh.png'
 
 export default {
   name: 'Analytics',
   components: {
     MainChart,
     DashboardCards,
-    
-    
+    RefreshIcon,
   },
-  }
+  setup() {
+    
+    return {
+    
+     RefreshIcon }
+  },
+}
+  
 </script>
