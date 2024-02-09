@@ -7,13 +7,14 @@
       class="left"
       @handleClicked="updataSelected"
     >
-      <template #button>
+      <!-- <template #button>
         <div class="btn--readmore">...more</div>
       </template>
       <template #content>
         <components :is="curContent"></components>
-      </template>
+      </template> -->
     </Tabs>
+    <Table />
   </div>
 </template>
 
