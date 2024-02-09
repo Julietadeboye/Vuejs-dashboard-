@@ -1,5 +1,6 @@
 body {
   background-color: #F3F7FF;
+  font-family: 'Hanken Grotesk', sans-serif;
  
 }
 
@@ -10,6 +11,7 @@ body {
   will-change: auto;
   @include transition(padding .15s);
 }
+
 
 .header > .container-fluid,
 .sidebar-header {
@@ -99,6 +101,7 @@ font-size: 12px;
 
 
 
+
 .sidebar-toggler {
   @include ltr-rtl("margin-left", auto);
 }
@@ -114,18 +117,4 @@ font-size: 12px;
   min-height: 3rem;
 }
 
-.footer {
-  min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
-}
 
-// @if $enable-dark-mode {
-//   @include color-mode(dark) {
-//     body {
-//       background-color: var(--cui-dark-bg-subtle);
-//     }
-
-//     .footer {
-//       --cui-footer-bg: var(--cui-body-bg);
-//     }
-//   }
-// }

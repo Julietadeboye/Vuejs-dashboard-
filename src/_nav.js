@@ -1,26 +1,27 @@
-import ideaLightBulbIcon from "@/assets/icons/idea light bulb.png";
-import circuit from "./assets/icons/circuit.png";
-import settingIcon from "./assets/icons/u_setting.png";
-import leftArrowIcon from "@/assets/icons/u_left-arrow-to-left.png";
-
 export default [
   {
     component: "CNavItem",
     name: "Get Started",
     to: "/",
-    icon: "cil-puzzle",
+    icon: "cil-memory",
   },
   {
     component: "CNavItem",
     name: "Analytics",
     to: "/analytics",
-    icon: "cil-drop",
+    icon: "cil-chart",
   },
   {
     component: "CNavItem",
     name: "Chat",
     to: "/chat",
-    icon: "cil-file",
+    icon: "cil-chat-bubble",
+  },
+  {
+    component: "CNavItem",
+    name: "Moderation",
+    to: "/",
+    icon: "cil-mood-good",
   },
   {
     component: "CNavItem",
