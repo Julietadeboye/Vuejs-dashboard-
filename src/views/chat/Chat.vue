@@ -1,6 +1,6 @@
 <template>
   <ChatCards />
-  <div class="tab-search"><CIcon icon="cil-filter" /><Search /></div>
+  <div class="tab-search"><Search /></div>
   <div id="app">
     <Tabs
       :tabs="tabs"

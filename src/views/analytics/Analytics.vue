@@ -10,31 +10,18 @@
     </div>
 
     <DashboardCards class="mb-4" />
-    <div class="main-chart"><MainChart /> <MainChart /></div>
-    <!-- <div>
-    <CRow>
-       <CCol :sm="6" :xl="4" :xxl="3">
-        <CCard>
-        
-        <CCardBody>
-          <MainChart />
-        </CCardBody>
-      </CCard>
-    </CCol>
-    </CRow>
-     <CRow>
-       <CCol :sm="6" :xl="4" :xxl="3">
-        <CCard>
-        
-        <CCardBody>
-          <MainChart />
-        </CCardBody>
-      </CCard>
-    </CCol>
-    </CRow>
-      </div> 
-  <template>
-<div>-->
+    <div class="main-chart">
+      <MainChart
+        :categories="categories1"
+        :seriesData="seriesData1"
+        :seriesColor="seriesColor1"
+      />
+      <MainChart
+        :categories="categories2"
+        :seriesData="seriesData2"
+        :seriesColor="seriesColor2"
+      />
+    </div>
   </div>
 </template>
 
@@ -53,6 +40,17 @@ export default {
   setup() {
     return {
       RefreshIcon,
+    };
+  },
+
+  data() {
+    return {
+      categories1: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      seriesData1: [100, 90, 131, 70, 28, 51, 142, 76],
+      seriesColor1: "#ff7f0e",
+      categories2: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      seriesData2: [150, 260, 70, 85, 190, 10, 110, 28, 51],
+      seriesColor2: "#15ae73",
     };
   },
 };

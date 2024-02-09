@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="{ width: chartWidth }">
     <apexchart
       width="500"
       height="350"
@@ -15,6 +15,20 @@ import VueApexCharts from "vue3-apexcharts";
 
 export default {
   name: "MainChart",
+  props: {
+    categories: {
+      type: Array,
+      default: () => ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    },
+    seriesData: {
+      type: Array,
+      required: true,
+    },
+    seriesColor: {
+      type: String,
+      default: "#008FFB",
+    },
+  },
   data() {
     return {
       chartOptions: {
@@ -25,7 +39,7 @@ export default {
           curve: "smooth",
         },
         xaxis: {
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+          categories: this.categories,
         },
         tooltip: {
           fixed: {
@@ -37,9 +51,11 @@ export default {
       series: [
         {
           name: "Active Users",
-          data: [100, 90, 131, 70, 28, 51, 142],
+          data: this.seriesData,
+          color: this.seriesColor,
         },
       ],
+      chartWidth: "100%",
     };
   },
   components: {
