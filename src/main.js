@@ -7,22 +7,19 @@ import CoreuiVue from "@coreui/vue";
 import CIcon from "@coreui/icons-vue";
 import { iconsSet as icons } from "@/assets/icons";
 
-import "vuetify/styles";
-import { createVuetify } from "vuetify";
-import * as components from "vuetify/components";
-import * as directives from "vuetify/directives";
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
+import VueApexCharts from "vue3-apexcharts";
 
-const vuetify = createVuetify({
-  components,
-  directives,
-});
-
-createApp(App).use(vuetify).mount("#app");
 const app = createApp(App);
 app.use(store);
 app.use(router);
 app.use(CoreuiVue);
 app.provide("icons", icons);
 app.component("CIcon", CIcon);
+app.component("VueDatePicker", VueDatePicker);
+app.use(VueApexCharts);
+
+app.component("apexchart", VueApexCharts);
 
 app.mount("#app");

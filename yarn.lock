@@ -434,6 +434,13 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.4.16.tgz#003eb5e759adea5aa1d5d51625ab10d7be437b26"
   integrity sha512-HKCjeaxR+R95dCw1BDaytcHdlzZj9lxj7RlFnxWtcKq670t8oSeMsbPlkzkNc2V6IUzHaMtUxdBcdREAhb+7NA==
 
+"@vuepic/vue-datepicker@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@vuepic/vue-datepicker/-/vue-datepicker-8.0.0.tgz#15d309494228d6cb97678c0851cc388869aacb6e"
+  integrity sha512-0HsxG2GGTWzeitPVhIEFPHLyLwTU+VT0vk15JreqNi0cB6D5Mpf5vqHppJE0ech+ZTQx36Ip99oSfnQdA0SNrA==
+  dependencies:
+    date-fns "^3.3.1"
+
 "@yr/monotone-cubic-spline@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@yr/monotone-cubic-spline/-/monotone-cubic-spline-1.0.3.tgz#7272d89f8e4f6fb7a1600c28c378cc18d3b577b9"
@@ -1540,6 +1547,16 @@ vue-router@^4.2.5:
   integrity sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==
   dependencies:
     "@vue/devtools-api" "^6.5.0"
+
+vue-search-input@^1.1.14:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/vue-search-input/-/vue-search-input-1.1.14.tgz#8092db5a44ee62f048bed23f799cd6902b7bbe07"
+  integrity sha512-oqhtPcHViMa5gKw+c/3QttBhMx/GTU01NOvKhjYQ8yM7dacWHGqmCo7BYgJkDFfw0zmKynkvp5T+932VQNRvHg==
+
+vue3-apexcharts@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/vue3-apexcharts/-/vue3-apexcharts-1.4.4.tgz#3fd5f97a79dd323d37c996a44617bb2ec9978152"
+  integrity sha512-TH89uZrxGjaDvkaYAISvj8+k6Bf1rUKFillc8oJirs5XZEPiwM1ELKZQ786wz0rfPqkSHHny2lqqUCK7Rw+LcQ==
 
 vue@^3.4.3:
   version "3.4.16"

@@ -10,6 +10,7 @@
     </div>
 
     <DashboardCards class="mb-4" />
+    <div class="main-chart"><MainChart /> <MainChart /></div>
     <!-- <div>
     <CRow>
        <CCol :sm="6" :xl="4" :xxl="3">
@@ -56,3 +57,4 @@ export default {
   },
 };
 </script>
+

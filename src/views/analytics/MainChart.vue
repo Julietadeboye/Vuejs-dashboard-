@@ -1,30 +1,49 @@
+<template>
+  <div>
+    <apexchart
+      width="500"
+      height="350"
+      type="area"
+      :options="chartOptions"
+      :series="series"
+    ></apexchart>
+  </div>
+</template>
+
+<script>
 import VueApexCharts from "vue3-apexcharts";
 
-const app = createApp(App);
-app.use(VueApexCharts);
-
- <template>
-    <div>
-      <apexchart width="500" type="line" :options="options" :series="series"></apexchart>
-    </div>
-  </template>
-
-  var app = new Vue({
-  el: '#appl',
-  data: function() {
+export default {
+  name: "MainChart",
+  data() {
     return {
-      options: {
-        chart: {
-          id: 'vuechart-example'
+      chartOptions: {
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
+          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        },
+        tooltip: {
+          fixed: {
+            enabled: false,
+            position: "topRight",
+          },
+        },
       },
-      series: [{
-        name: 'series-1',
-        data: [30, 40, 45, 50, 49, 60, 70, 91]
-      }]
-    }
-  }
-});
+      series: [
+        {
+          name: "Active Users",
+          data: [100, 90, 131, 70, 28, 51, 142],
+        },
+      ],
+    };
+  },
+  components: {
+    apexchart: VueApexCharts,
+  },
+};
+</script>

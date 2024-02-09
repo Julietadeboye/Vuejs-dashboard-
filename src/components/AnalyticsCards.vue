@@ -3,7 +3,7 @@
     <div v-if="loading">Loading...</div>
     <div v-else>
       <CRow :xs="{ gutter: 4 }">
-        <CCol :sm="6" :xl="4" :xxl="3">
+        <CCol :sm="3">
           <CCard class="card-dashboard">
             <CCardBody>
               <CCardTitle class="card-title">USERS ONLINE</CCardTitle>

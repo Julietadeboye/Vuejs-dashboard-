@@ -1,5 +1,6 @@
 <template>
   <ChatCards />
+  <div class="tab-search"><CIcon icon="cil-filter" /><Search /></div>
   <div id="app">
     <Tabs
       :tabs="tabs"
@@ -7,13 +8,8 @@
       class="left"
       @handleClicked="updataSelected"
     >
-      <!-- <template #button>
-        <div class="btn--readmore">...more</div>
-      </template>
-      <template #content>
-        <components :is="curContent"></components>
-      </template> -->
     </Tabs>
+
     <Table />
   </div>
 </template>
@@ -22,25 +18,24 @@
 import Tabs from "./Tabs.vue";
 import Table from "./Table.vue";
 import ChatCards from "../../components/ChatCards.vue";
-
+import Search from "../../components/Search.vue";
 export default {
   name: "App",
   components: {
     Tabs,
     Table,
     ChatCards,
+    Search,
   },
   data() {
     return {
       tabs: [
         {
           title: "Direct Messages",
-
           content: "Table",
         },
         {
           title: "Groups",
-
           content: "",
         },
       ],

@@ -32,16 +32,12 @@
         <CTableDataCell>{{ formatDate(item.date_created) }}</CTableDataCell>
         <CTableDataCell>{{ item.media_sent }}</CTableDataCell>
         <CTableHeaderCell scope="row">
-          <CHeaderToggler
-            v-show="!sidebarVisible"
-            @click="$store.commit('toggleSidebar')"
-            style="margin-inline-start: -14px"
-          >
+          <CButton @click="showModal = true">
             <CIcon
               icon="cil-options"
               style="transform: rotate(90deg); cursor: pointer"
             />
-          </CHeaderToggler>
+          </CButton>
         </CTableHeaderCell>
       </CTableRow>
     </CTableBody>
@@ -49,6 +45,7 @@
   <div class="pagination">
     <Pagination :pagination="pagination" @go-to-page="fetchData" />
   </div>
+  <SmallModal v-if="showModal" @close="showModal = false" />
 </template>
 
 <script>
@@ -56,12 +53,20 @@ import { ref } from "vue";
 import axios from "axios";
 import { format } from "date-fns";
 import Pagination from "../../components/Pagination.vue";
+import SmallModal from "../../components/SmallModal.vue";
 
 export default {
   name: "Table",
   components: {
     Pagination,
+    SmallModal,
   },
+  data() {
+    return {
+      showModal: false,
+    };
+  },
+
   setup() {
     const data = ref([]);
     const pagination = ref({});
@@ -90,7 +95,7 @@ export default {
     };
 
     const formatDate = (date) => {
-      return format(new Date(date), "dd MMM, yyyy");
+      return format(new Date(date), "dd mmm, yyyy");
     };
 
     const goToPage = (page) => {
