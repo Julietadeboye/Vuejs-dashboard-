@@ -11,12 +11,23 @@ body {
   will-change: auto;
   @include transition(padding .15s);
 }
-
-
-.header > .container-fluid,
-.sidebar-header {
- // min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+.pagination{
+  width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
 }
+.active-page {
+ 
+  background-color: transparent;
+  color: #212b36;
+  text-decoration: none;
+}
+
+// .header > .container-fluid,
+// .sidebar-header {
+//  // min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+// }
 .card-dashboard{
   height: 115px; 
  width: auto;

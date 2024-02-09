@@ -1,6 +1,6 @@
 import { defineComponent, h, onMounted, ref, resolveComponent } from "vue";
 import { RouterLink, useRoute } from "vue-router";
-import { useStore } from "vuex"; // Import useStore from Vuex
+import { useStore } from "vuex";
 
 import {
   CBadge,

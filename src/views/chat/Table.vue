@@ -4,25 +4,21 @@
       <CTableRow>
         <CTableHeaderCell style="color: #9999bc" scope="col"
           >Users
+          <CIcon icon="cil-elevator" />
         </CTableHeaderCell>
-        <span>{{ item.full_name }}</span>
-        <span v-if="item.sortable" class="sort-icon">
-          <i class="cil-elevator"></i>
-        </span>
+
+        <CTableHeaderCell style="color: #9999bc" scope="col" icon="cil-elevator"
+          >Messages Sent <CIcon icon="cil-elevator" />
+        </CTableHeaderCell>
         <CTableHeaderCell style="color: #9999bc" scope="col"
-          >Messages Sent <span>{{ item.full_name }}</span>
-          <span v-if="item.sortable" class="sort-icon">
-            <i class="cil-elevator"></i> </span
-        ></CTableHeaderCell>
+          >Media Storage Used <CIcon icon="cil-elevator"
+        /></CTableHeaderCell>
         <CTableHeaderCell style="color: #9999bc" scope="col"
-          >Media Storage Used</CTableHeaderCell
-        >
+          >Date Created <CIcon icon="cil-elevator"
+        /></CTableHeaderCell>
         <CTableHeaderCell style="color: #9999bc" scope="col"
-          >Date Created</CTableHeaderCell
-        >
-        <CTableHeaderCell style="color: #9999bc" scope="col"
-          >Media Sent</CTableHeaderCell
-        >
+          >Media Sent <CIcon icon="cil-elevator"
+        /></CTableHeaderCell>
         <CTableHeaderCell style="color: #9999bc" scope="col"></CTableHeaderCell>
       </CTableRow>
     </CTableHead>
@@ -35,21 +31,40 @@
         }}</CTableDataCell>
         <CTableDataCell>{{ formatDate(item.date_created) }}</CTableDataCell>
         <CTableDataCell>{{ item.media_sent }}</CTableDataCell>
-        <CTableHeaderCell scope="row">{{ index + 1 }}</CTableHeaderCell>
+        <CTableHeaderCell scope="row">
+          <CHeaderToggler
+            v-show="!sidebarVisible"
+            @click="$store.commit('toggleSidebar')"
+            style="margin-inline-start: -14px"
+          >
+            <CIcon
+              icon="cil-options"
+              style="transform: rotate(90deg); cursor: pointer"
+            />
+          </CHeaderToggler>
+        </CTableHeaderCell>
       </CTableRow>
     </CTableBody>
   </CTable>
+  <div class="pagination">
+    <Pagination :pagination="pagination" @go-to-page="fetchData" />
+  </div>
 </template>
 
 <script>
 import { ref } from "vue";
 import axios from "axios";
 import { format } from "date-fns";
+import Pagination from "../../components/Pagination.vue";
 
 export default {
   name: "Table",
+  components: {
+    Pagination,
+  },
   setup() {
     const data = ref([]);
+    const pagination = ref({});
 
     const fetchData = async () => {
       try {
@@ -57,6 +72,8 @@ export default {
           "https://sfe-m3if.onrender.com/api/v1/messages?page=1&limit=5"
         );
         data.value = response.data.data;
+        pagination.value = response.data;
+        console.log("console", response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -76,10 +93,16 @@ export default {
       return format(new Date(date), "dd MMM, yyyy");
     };
 
+    const goToPage = (page) => {
+      fetchData(page);
+    };
+
     return {
       data,
+      pagination,
       formatStorage,
       formatDate,
+      goToPage,
     };
   },
 };
