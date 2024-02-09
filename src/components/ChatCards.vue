@@ -6,9 +6,9 @@
         <CCol :sm="6" :xl="4" :xxl="3">
           <CCard class="card-dashboard">
             <CCardBody>
-              <CCardTitle class="card-title">USERS ONLINE</CCardTitle>
+              <CCardTitle class="card-title">no of users</CCardTitle>
               <CCardText class="card-text">{{
-                data.data.usersOnline
+                data.data.numberOfUsers
               }}</CCardText>
             </CCardBody>
           </CCard>
@@ -16,21 +16,9 @@
         <CCol :sm="3">
           <CCard class="card-dashboard">
             <CCardBody>
-              <CCardTitle class="card-title">USERS ACTIVE TODAY</CCardTitle>
+              <CCardTitle class="card-title">total message sent</CCardTitle>
               <CCardText class="card-text">{{
-                data.data.usersActiveToday
-              }}</CCardText>
-            </CCardBody>
-          </CCard>
-        </CCol>
-        <CCol :sm="3">
-          <CCard class="card-dashboard">
-            <CCardBody>
-              <CCardTitle class="card-title"
-                >USERS ACTIVE THIS MONTH</CCardTitle
-              >
-              <CCardText class="card-text">{{
-                data.data.usersActiveThisMonth
+                data.data.totalMessagesSent
               }}</CCardText>
             </CCardBody>
           </CCard>
@@ -39,22 +27,21 @@
           <CCard class="card-dashboard">
             <CCardBody>
               <CCardTitle class="card-title"
-                >PEAK CONCURRENCY THIS MONTH</CCardTitle
+                >total media storage used</CCardTitle
               >
-              <CCardText class="card-text">{{
-                data.data.peakConcurrency
-              }}</CCardText>
-            </CCardBody>
-          </CCard>
-        </CCol>
-        <CCol :sm="3">
-          <CCard class="card-dashboard">
-            <CCardBody>
-              <CCardTitle class="card-title">DASHBOARD</CCardTitle>
               <CCardText class="card-text">
-                {{ formatStorage(data.data.dashboard) }}
-                <span style="font-size: 13px">of 512 GB</span>
+                {{ formatStorage(data.data.totalStorageUsed) }}
               </CCardText>
+            </CCardBody>
+          </CCard>
+        </CCol>
+        <CCol :sm="3">
+          <CCard class="card-dashboard">
+            <CCardBody>
+              <CCardTitle class="card-title">total media sent</CCardTitle>
+              <CCardText class="card-text">{{
+                data.data.totalMediaSent
+              }}</CCardText>
             </CCardBody>
           </CCard>
         </CCol>
@@ -73,11 +60,10 @@ export default {
       cards: [],
       loading: true,
       data: {
-        usersOnline: 0,
-        usersActiveToday: 0,
-        usersActiveThisMonth: 0,
-        peakConcurrency: 0,
-        dashboard: 0,
+        numberOfUsers: 0,
+        totalMessagesSent: 0,
+        totalStorageUsed: 0,
+        totalMediaSent: 0,
       },
     };
   },
@@ -88,11 +74,11 @@ export default {
     async fetchData() {
       try {
         const response = await axios.get(
-          "https://sfe-m3if.onrender.com/api/v1/dashboard"
+          "https://sfe-m3if.onrender.com/api/v1/chat_dashboard"
         );
         this.data = response.data;
         this.loading = false;
-        console.log(response.data.data.usersOnline);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
         this.loading = false;

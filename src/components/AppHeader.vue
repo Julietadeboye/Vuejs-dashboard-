@@ -1,6 +1,6 @@
 <template>
-  <CHeader position="sticky" :class="headerClassNames">
-    <CContainer class="border-bottom px-4" fluid>
+  <CHeader position="sticky" :class="headerClassNames" :style="{ backgroundColor }">
+    <CContainer class="border-bottom px-4 " fluid>
       <div class="header-row">
       <CHeaderToggler v-show="!sidebarVisible" @click="$store.commit('toggleSidebar')" style="margin-inline-start: -14px">
         <CIcon icon="cil-menu" size="lg" />
@@ -11,9 +11,9 @@
         
       <CHeaderNav>
         
-<CButton color="primary" shape="rounded-pill">
+          <CButton  shape="rounded-pill" class="header-button" style="color: #fff; ">
                Download Report
-              </CButton>
+          </CButton>
         <li class="nav-item py-1">
           <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
         </li>
@@ -60,7 +60,8 @@ export default {
     
   },
   setup() {
-    const headerClassNames = ref('mb-4 p-0')
+    const headerClassNames = ref('mb-4 p-0 b')
+    const backgroundColor = ref("#F3F7FF")
     const { colorMode, setColorMode } = useColorModes('coreui-free-vue-admin-template-theme')
 
     onMounted(() => {
@@ -75,9 +76,34 @@ export default {
 
     return {
       headerClassNames,
+      backgroundColor,
       colorMode,
       setColorMode,
     }
   },
 }
 </script>
+
+<style>
+.header-button{
+  color: #fff; 
+  background-color: #4568D1; 
+  font-size: 16px; 
+  width: 203px; 
+  height: 32px; 
+  padding: 4px 35px; 
+ transition: background-color 0.3s ease; 
+}
+
+.header-button:hover {
+  background-color: #3456a7;
+}
+
+@media (max-width: 768px) {
+  .header-button {
+    width: 150px; 
+    font-size: 12px;
+    padding: 4px 20px; 
+  }
+}
+</style>
