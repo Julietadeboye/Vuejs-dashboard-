@@ -45,7 +45,6 @@
   <div class="pagination">
     <Pagination :pagination="pagination" @go-to-page="fetchData" />
   </div>
-  <SmallModal v-if="showModal" @close="showModal = false" />
 </template>
 
 <script>
@@ -53,23 +52,17 @@ import { ref } from "vue";
 import axios from "axios";
 import { format } from "date-fns";
 import Pagination from "../../components/Pagination.vue";
-import SmallModal from "../../components/SmallModal.vue";
 
 export default {
   name: "Table",
   components: {
     Pagination,
-    SmallModal,
-  },
-  data() {
-    return {
-      showModal: false,
-    };
   },
 
   setup() {
     const data = ref([]);
     const pagination = ref({});
+    const smDemo = ref(false);
 
     const fetchData = async () => {
       try {
@@ -78,10 +71,7 @@ export default {
         );
         data.value = response.data.data;
         pagination.value = response.data;
-        console.log("console", response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      } catch (error) {}
     };
 
     fetchData();
@@ -108,6 +98,7 @@ export default {
       formatStorage,
       formatDate,
       goToPage,
+      smDemo,
     };
   },
 };

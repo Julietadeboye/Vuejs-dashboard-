@@ -1,6 +1,14 @@
 <template>
   <ChatCards />
-  <div class="tab-search"><Search /></div>
+  <div class="tab-search">
+    <Search
+      @click="
+        () => {
+          smDemo = true;
+        }
+      "
+    />
+  </div>
   <div id="app">
     <Tabs
       :tabs="tabs"
@@ -12,6 +20,7 @@
 
     <Table />
   </div>
+  <Filter :smDemo="smDemo" @update:smDemo="smDemo = $event" />
 </template>
 
 <script>
@@ -19,6 +28,8 @@ import Tabs from "./Tabs.vue";
 import Table from "./Table.vue";
 import ChatCards from "../../components/ChatCards.vue";
 import Search from "../../components/Search.vue";
+import Filter from "../../components/Filter.vue";
+
 export default {
   name: "App",
   components: {
@@ -26,6 +37,7 @@ export default {
     Table,
     ChatCards,
     Search,
+    Filter,
   },
   data() {
     return {

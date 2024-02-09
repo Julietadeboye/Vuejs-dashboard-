@@ -92,9 +92,7 @@ export default {
         );
         this.data = response.data;
         this.loading = false;
-        console.log(response.data.data.usersOnline);
       } catch (error) {
-        console.error("Error fetching data:", error);
         this.loading = false;
       }
     },

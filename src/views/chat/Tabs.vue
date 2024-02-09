@@ -2,12 +2,12 @@
   <div class="tabs">
     <ul class="tab-nav">
       <li
-        v-for="(tab,idx) in tabs"
+        v-for="(tab, idx) in tabs"
         :key="idx"
         :class="['tab', selected === idx && ' active']"
         @click="handleSelected(idx)"
       >
-        <i :class="tab.icon" v-if="tab.icon !=''"></i>
+        <i :class="tab.icon" v-if="tab.icon != ''"></i>
         {{ tab.title }}
       </li>
       <slot name="button"></slot>
@@ -17,35 +17,30 @@
   </div>
 </template>
 <script>
-// import Tab from "./Tab/Tab";
-
 export default {
   name: "Tabs",
-  components: {
-   
-  },
+  components: {},
   props: {
     tabs: {
       type: Array,
-      required: true
+      required: true,
     },
     selected: {
-      type: Number
-    }
+      type: Number,
+    },
   },
   methods: {
     handleSelected(idx) {
       this.$emit("handleClicked", idx);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 $Tabs-bottom: 1px solid #dddddd;
-$Tabs-color-hover: #EA8D51;
-$Tab-bottom-hover: 1px solid #EA8D51;
-
+$Tabs-color-hover: #ea8d51;
+$Tab-bottom-hover: 1px solid #ea8d51;
 
 .tabs {
   box-sizing: border-box;
@@ -71,7 +66,6 @@ $Tab-bottom-hover: 1px solid #EA8D51;
         color: $Tabs-color-hover;
         border-bottom: $Tab-bottom-hover;
       }
-     
     }
   }
   .tab-content {

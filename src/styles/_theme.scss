@@ -108,7 +108,7 @@ font-size: 12px;
   .nav-link {
     display: flex;
     align-items: center;
-    min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+    min-height: calc(4rem + 1px); 
   }
 }
 .refresh{
